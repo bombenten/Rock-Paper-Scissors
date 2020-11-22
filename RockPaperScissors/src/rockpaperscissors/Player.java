@@ -14,7 +14,11 @@ public class Player {
     }
     
     public void setName(String name) {
-        
+        if(name.isBlank()){
+            this.name = "PLAYER_NAME";
+        } else {
+            this.name = name ;
+        }
     }
     public String getName(){
         return name;
@@ -29,10 +33,16 @@ public class Player {
         
     }
     private void checkDmg(Player player){
-        
+        if(player.getCurrentChance() <= 0){
+            player.currentChance = 0 ;
+            System.out.println(player.getName() + "fainnted");
+        }
     }
     public void heal(){
-        
+        currentChance = getCurrentChance() + 10;
+        if(getCurrentChance() > getChance()){
+            currentChance = getChance();
+        }
     }
     public String option(int choice){
         return 0;
