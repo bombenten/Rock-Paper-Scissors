@@ -86,6 +86,7 @@ public class Player {
         return Option.values()[choice].toString();
     }
 
+
     @Override
     public String toString() {
         return "Player{" + "Chance=" + Chance + ", currentChance=" + currentChance + ", name=" + name + '}';
