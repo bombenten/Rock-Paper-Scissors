@@ -45,7 +45,11 @@ public class Player {
         }
     }
     public String option(int choice){
-        return 0;
+        return Option.values()[choice].toString();
+    }
+
+    void useSkill(int skillP1, Player Challenger) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
