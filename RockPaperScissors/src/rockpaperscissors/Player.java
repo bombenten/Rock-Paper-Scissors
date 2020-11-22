@@ -43,26 +43,26 @@ public class Player {
                     System.out.print(this.getName() + " use " + Option.values()[choice] + " to " + anotherPlayer.getName());
                     if (crit1 == crit2) {
                         System.out.println(" CRITICAL HIT!");
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - (10 * 2);
+                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - (1 * 2);
                         checkDmg(anotherPlayer);
                     } else {
                         System.out.println();
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 10;
+                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 1;
                         checkDmg(anotherPlayer);
                     }
                     break;
                 }
                 case 1 -> {
-                    int crit1 = random.nextInt(10);
-                    int crit2 = random.nextInt(10);
+                    int crit1 = random.nextInt(1);
+                    int crit2 = random.nextInt(1);
                     System.out.print(this.getName() + " use " + Option.values()[choice] + " to " + anotherPlayer.getName());
                     if (crit1 == crit2) {
                         System.out.println(" CRITICAL HIT!");
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - (20 * 2);
+                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - (2 * 2);
                         checkDmg(anotherPlayer);
                     } else {
                         System.out.println();
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 20;
+                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 2;
                         checkDmg(anotherPlayer);
                     }
                     break;
@@ -77,7 +77,7 @@ public class Player {
         }
     }
     public void heal(){
-        currentChance = getCurrentChance() + 10;
+        currentChance = getCurrentChance() + 1;
         if(getCurrentChance() > getChance()){
             currentChance = getChance();
         }

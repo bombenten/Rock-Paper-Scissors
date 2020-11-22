@@ -21,7 +21,7 @@ public class mainGame {
 
             System.out.println("Set challenger name : ");
             String playerName2 = sc.nextLine();
-            Champion.setName(playerName2);
+            Challenger.setName(playerName2);
 
             while (true) {
                 System.out.println(Champion.getName() + "please enter choice 0-2 : ");
@@ -52,6 +52,32 @@ public class mainGame {
                     }
 
                 }
+                System.out.print(Challenger.getName() + " please enter skill(0-2): ");
+                int skillP2 = sc.nextInt();
+                if (skillP2 == 2) {
+                    System.out.println(Challenger.getName() + " use " + Challenger.option(skillP2));
+                    Challenger.heal();
+                    System.out.println();
+                    System.out.println(Champion);
+                    System.out.println(Challenger);
+                    System.out.println();
+                } else {
+                    Challenger.useOption(skillP2, Champion);
+                    if (Champion.getCurrentChance() <= 0) {
+                        System.out.println();
+                        System.out.println(Champion);
+                        System.out.println(Challenger);
+                        System.out.println();
+                        System.out.println(Challenger.getName() + " WIN");
+                        System.out.println();
+                        break;
+                    } else {
+                        System.out.println();
+                        System.out.println(Champion);
+                        System.out.println(Challenger);
+                        System.out.println();
+                    }
+                }
             }
             System.out.println("Try again? (y/n) : ");
             decide = sc.next().charAt(0);
@@ -59,4 +85,4 @@ public class mainGame {
 
         } while (decide == 'y' || decide == 'Y');
     }
-}    
+}
