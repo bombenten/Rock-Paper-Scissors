@@ -1,5 +1,7 @@
 package rockpaperscissors;
+
 import java.util.Scanner;
+
 /**
  *
  * @author Bomber
@@ -51,4 +53,10 @@ public class mainGame {
 
                 }
             }
-        }
+            System.out.println("Try again? (y/n) : ");
+            decide = sc.next().charAt(0);
+            System.out.println();
+
+        } while (decide == 'y' || decide == 'Y');
+    }
+}    
