@@ -25,16 +25,16 @@ public class mainGame {
 
             while (true) {
                 System.out.println(Champion.getName() + "please enter choice 0-2 : ");
-                int skillp1 = sc.nextInt();
-                if (skillp1 == 2) {
-                    System.out.println(Champion.getName() + "use" + Champion.skill(skillp1));
+                int skillP1 = sc.nextInt();
+                if (skillP1 == 2) {
+                    System.out.println(Champion.getName() + "use" + Champion.option(skillP1));
                     Champion.heal();
                     System.out.println();
                     System.out.println(Champion);
                     System.out.println(Challenger);
                     System.out.println();
                 } else {
-                    Champion.useSkill(skillP1, Challenger);
+                    Champion.useOption(skillP1, Challenger);
                     if (Challenger.getCurrentChance() <= 0) {
                         System.out.println();
                         System.out.println(Champion);
