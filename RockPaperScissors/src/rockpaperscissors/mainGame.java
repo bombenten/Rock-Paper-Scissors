@@ -22,9 +22,12 @@ public class mainGame {
             System.out.print("Set challenger name : ");
             String challengerName = sc.nextLine();
             Challenger.setName(challengerName);
-
+            
+            System.out.println("Welcome to Rock - Paper - Scissors Game");
+            
             while (true) {
                 System.out.println("--------------------------------------------");
+                
                 System.out.println("0 - Rock");
                 System.out.println("1 - Paper");
                 System.out.println("2 - Scissors");
@@ -41,34 +44,32 @@ public class mainGame {
                 System.out.println("--------------------------------------------");
                 System.out.print(Challenger.getName() + " please enter choice 0-2 : ");
                 int optionChallenger = sc.nextInt();
+                
+                System.out.println("\n \n \n \n \n \n \n \n \n");
+                System.out.println("============================================");
 
                 Champion.useOption(optionChampion, optionChallenger, Challenger); //player class useOption
 //                Challenger.useOption(optionChallenger, Champion);
-                if (Challenger.getCurrentChance() <= 0) {
-                    System.out.println();
+                if (Challenger.getCurrentPoint() <= 0) {
                     System.out.println(Champion);
                     System.out.println(Challenger);
-                    System.out.println();
                     System.out.println("---------------------- [ " + Champion.getName() + " WIN ]");
-                    System.out.println("");
+                    System.out.println("============================================");
                     break;
 
                 } 
-                else if (Champion.getCurrentChance() <= 0) {
-                    System.out.println();
+                else if (Champion.getCurrentPoint() <= 0) {
                     System.out.println(Champion);
                     System.out.println(Challenger);
-                    System.out.println();
                     System.out.println("---------------------- [ " + Challenger.getName() + " WIN ]");
-                    System.out.println("");
+                    System.out.println("============================================");
                     break;
 
                 }
                 else {
-                    System.out.println();
                     System.out.println(Champion);
                     System.out.println(Challenger);
-                    System.out.println();
+                    System.out.println("============================================");
                 }
 
             }

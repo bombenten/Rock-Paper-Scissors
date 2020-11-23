@@ -6,12 +6,13 @@ package rockpaperscissors;
  */
 public class Player {
 
-    private final int Chance = 3;
-    private int currentChance;
+    private final int point = 3;
+    private int currentPoint;
     private String name;
+    private int pointWin = 0;
 
     public Player() {
-        this.currentChance = Chance;
+        this.currentPoint = point;
     }
 
     public void setName(String name) {
@@ -26,12 +27,16 @@ public class Player {
         return name;
     }
 
-    public int getChance() {
-        return Chance;
+    public int getPoint() {
+        return point;
     }
 
-    public int getCurrentChance() {
-        return currentChance;
+    public int getCurrentPoint() {
+        return currentPoint;
+    }
+
+    public int getPointWin() {
+        return pointWin;
     }
 
     public void useOption(int choiceChampion, int choiceChallenger, Player anotherPlayer) {
@@ -40,17 +45,18 @@ public class Player {
         } else {
             switch (choiceChampion) {
                 case 0 -> { // 0 is Rock
-                    System.out.print(this.getName() + " use " + Option.values()[0]);
-                    System.out.println();
+                    System.out.println(this.getName() + " use " + Option.values()[0]);
                     if (choiceChallenger == 2) { // 2 is Scissors
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 1; //win
+                        anotherPlayer.currentPoint = anotherPlayer.getCurrentPoint() - 1; //win
+                        this.pointWin = this.getPointWin() + 1;
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[2]);
+
                     } else if (choiceChallenger == 1) { // 1 is Paper
-                        currentChance = getCurrentChance() - 1; //lose
+                        currentPoint = getCurrentPoint() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[1]);
-                    }
-                    else if (choiceChallenger == 0) { // 0 is Rock
-                        currentChance = getCurrentChance() ; //draw
+                        anotherPlayer.pointWin = anotherPlayer.getPointWin() + 1;
+                    } else if (choiceChallenger == 0) { // 0 is Rock
+                        currentPoint = getCurrentPoint(); //draw
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[0]);
                         System.out.println("----- DRAW -----");
                     }
@@ -59,17 +65,18 @@ public class Player {
                     break;
                 }
                 case 1 -> { // 1 is Paper
-                    System.out.print(this.getName() + " use " + Option.values()[1]);
-                    System.out.println();
+                    System.out.println(this.getName() + " use " + Option.values()[1]);
                     if (choiceChallenger == 0) { // 0 is Rock
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 1; //win
+                        anotherPlayer.currentPoint = anotherPlayer.getCurrentPoint() - 1; //win
+                        this.pointWin = this.getPointWin() + 1;
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[0]);
+
                     } else if (choiceChallenger == 2) { // 2 is Scissors
-                        currentChance = getCurrentChance() - 1; //lose
+                        currentPoint = getCurrentPoint() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[2]);
-                    }
-                    else if (choiceChallenger == 1) { // 1 is Paper
-                        currentChance = getCurrentChance() ; //draw
+                        anotherPlayer.pointWin = anotherPlayer.getPointWin() + 1;
+                    } else if (choiceChallenger == 1) { // 1 is Paper
+                        currentPoint = getCurrentPoint(); //draw
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[1]);
                         System.out.println("----- DRAW -----");
                     }
@@ -78,17 +85,18 @@ public class Player {
                     break;
                 }
                 case 2 -> { // 2 is Scissors
-                    System.out.print(this.getName() + " use " + Option.values()[2]);
-                    System.out.println();
+                    System.out.println(this.getName() + " use " + Option.values()[2]);
                     if (choiceChallenger == 1) { // 1 is Paper
-                        anotherPlayer.currentChance = anotherPlayer.getCurrentChance() - 1; //win
+                        anotherPlayer.currentPoint = anotherPlayer.getCurrentPoint() - 1; //win
+                        this.pointWin = this.getPointWin() + 1;
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[1]);
+
                     } else if (choiceChallenger == 0) { // 0 is Rock
-                        currentChance = getCurrentChance() - 1; //lose
+                        currentPoint = getCurrentPoint() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[0]);
-                    }
-                    else if (choiceChallenger == 2) { // 2 is Scissors
-                        currentChance = getCurrentChance() ; //draw
+                        anotherPlayer.pointWin = anotherPlayer.getPointWin() + 1;
+                    } else if (choiceChallenger == 2) { // 2 is Scissors
+                        currentPoint = getCurrentPoint(); //draw
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[2]);
                         System.out.println("----- DRAW -----");
                     }
@@ -101,8 +109,8 @@ public class Player {
     }
 
     private void checkDmg(Player player) {
-        if (player.getCurrentChance() <= 0) {
-            player.currentChance = 0;
+        if (player.getCurrentPoint() <= 0) {
+            player.currentPoint = 0;
             System.out.println("---------------------- [ " + player.getName() + " LOSE ]");
         }
 
@@ -114,7 +122,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" + "Chance=" + Chance + ", currentChance=" + currentChance + ", name=" + name + '}';
+        return "STATUS " + name + " : " + "Point = " + pointWin ;
     }
 
 }
