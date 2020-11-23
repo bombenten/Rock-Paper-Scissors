@@ -3,6 +3,7 @@ package rockpaperscissors;
 /**
  *
  * @author Bomber
+ * @author Dose
  */
 public class Player {
 
@@ -14,7 +15,12 @@ public class Player {
     public Player() {
         this.currentHp = hp;
     }
-
+    
+    /**
+     * 
+     * @param name player will input his name into this
+     * @see rockpaperscissors.mainGame
+     */
     public void setName(String name) {
         if (name.isBlank()) {
             this.name = "Unknown player";
@@ -39,6 +45,14 @@ public class Player {
         return pointWin;
     }
 
+    /**
+     * 
+     * @param choiceChampion the index is choice of Champion choose from mainGame
+     * @param choiceChallenger the index is choice of Challenger choose from mainGame
+     * @param anotherPlayer 
+     * @see rockpaperscissors.mainGame
+     * 
+     */
     public void useOption(int choiceChampion, int choiceChallenger, Player anotherPlayer) {
         if (choiceChampion < 0 || choiceChampion > 2 || choiceChallenger < 0 || choiceChallenger > 2) {
             throw new Error("PLEASE ENTER INDEX 0 TO 2");
@@ -108,6 +122,10 @@ public class Player {
         }
     }
 
+    /**
+     * 
+     * @param player it sent currentHp to this method
+     */
     private void checkDmg(Player player) {
         if (player.getCurrentHp() <= 0) {
             player.currentHp = 0;
@@ -116,6 +134,13 @@ public class Player {
 
     }
 
+    /**
+     * 
+     * @param choice player insert his choice to play game and choice will turn
+     * to number of enums list
+     * @return enums list that he choose
+     * @see rockpaperscissors.Option
+     */
     public String option(int choice) {
         return Option.values()[choice].toString();
     }

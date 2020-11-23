@@ -2,7 +2,7 @@ package rockpaperscissors;
 
 /**
  *
- * @author Thinkpad
+ * @author Dose
  */
 public enum Option {
     Rock, Paper, Scissors
