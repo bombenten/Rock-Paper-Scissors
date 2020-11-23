@@ -49,35 +49,28 @@ public class mainGame {
                     System.out.println(Champion);
                     System.out.println(Challenger);
                     System.out.println();
-                    System.out.println(Champion.getName() + " WIN");
+                    System.out.println("---------------------- [ " + Champion.getName() + " WIN ]");
                     System.out.println("");
                     break;
 
-                } else {
+                } 
+                else if (Champion.getCurrentChance() <= 0) {
+                    System.out.println();
+                    System.out.println(Champion);
+                    System.out.println(Challenger);
+                    System.out.println();
+                    System.out.println("---------------------- [ " + Challenger.getName() + " WIN ]");
+                    System.out.println("");
+                    break;
+
+                }
+                else {
                     System.out.println();
                     System.out.println(Champion);
                     System.out.println(Challenger);
                     System.out.println();
                 }
 
-                if (optionChallenger == 2) {
-                    System.out.println(Challenger.getName() + " use " + Challenger.option(optionChallenger));
-                    System.out.println();
-                    System.out.println(Champion);
-                    System.out.println(Challenger);
-                    System.out.println();
-                } else {
-//                    Challenger.useOption(optionChallenger, Champion);
-                    if (Champion.getCurrentChance() <= 0) {
-                        System.out.println();
-                        System.out.println(Champion);
-                        System.out.println(Challenger);
-                        System.out.println();
-                        System.out.println(Challenger.getName() + " WIN");
-                        System.out.println();
-                        break;
-                    }
-                }
             }
             System.out.print("Try again? (y/n) : ");
             decide = sc.next().charAt(0);
