@@ -49,7 +49,13 @@ public class Player {
                         currentChance = getCurrentChance() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[1]);
                     }
+                    else if (choiceChallenger == 0) { // 0 is Rock
+                        currentChance = getCurrentChance() ; //draw
+                        System.out.println(anotherPlayer.getName() + " use " + Option.values()[0]);
+                        System.out.println("----- DRAW -----");
+                    }
                     checkDmg(anotherPlayer);
+                    checkDmg(this);
                     break;
                 }
                 case 1 -> { // 1 is Paper
@@ -62,7 +68,13 @@ public class Player {
                         currentChance = getCurrentChance() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[2]);
                     }
+                    else if (choiceChallenger == 1) { // 1 is Paper
+                        currentChance = getCurrentChance() ; //draw
+                        System.out.println(anotherPlayer.getName() + " use " + Option.values()[1]);
+                        System.out.println("----- DRAW -----");
+                    }
                     checkDmg(anotherPlayer);
+                    checkDmg(this);
                     break;
                 }
                 case 2 -> { // 2 is Scissors
@@ -75,8 +87,13 @@ public class Player {
                         currentChance = getCurrentChance() - 1; //lose
                         System.out.println(anotherPlayer.getName() + " use " + Option.values()[0]);
                     }
+                    else if (choiceChallenger == 2) { // 2 is Scissors
+                        currentChance = getCurrentChance() ; //draw
+                        System.out.println(anotherPlayer.getName() + " use " + Option.values()[2]);
+                        System.out.println("----- DRAW -----");
+                    }
                     checkDmg(anotherPlayer);
-
+                    checkDmg(this);
                     break;
                 }
             }
