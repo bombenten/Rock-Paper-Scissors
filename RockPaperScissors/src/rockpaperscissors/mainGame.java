@@ -50,7 +50,7 @@ public class mainGame {
 
                 Champion.useOption(optionChampion, optionChallenger, Challenger); //player class useOption
 //                Challenger.useOption(optionChallenger, Champion);
-                if (Challenger.getCurrentPoint() <= 0) {
+                if (Challenger.getCurrentHp() <= 0) {
                     System.out.println(Champion);
                     System.out.println(Challenger);
                     System.out.println("---------------------- [ " + Champion.getName() + " WIN ]");
@@ -58,7 +58,7 @@ public class mainGame {
                     break;
 
                 } 
-                else if (Champion.getCurrentPoint() <= 0) {
+                else if (Champion.getCurrentHp() <= 0) {
                     System.out.println(Champion);
                     System.out.println(Challenger);
                     System.out.println("---------------------- [ " + Challenger.getName() + " WIN ]");
